@@ -1,0 +1,11 @@
+Para se autenticar:
+1. Execute as aplicações.
+2. Procure a collection do postman "createClient" e crie seu usuário inserindo name, email e password no body.
+3. Váa no navegador de sua preferência e cole "http://localhost:8082/oauth2/authorize?response_type=code&client_id=resourceserver&state=auth&redirect_uri=https://oidcdebugger.com/debug&scope=email"
+4. Digite email e senha. Logue.
+5. Marque a opção e-mail, quando for solicitado.
+6. Copie o token
+7. Procure a collection "Auth with auth code - resourceserver"
+8. Cole o token em code e dê um POST
+9. Obtenha o access_token e guarde-o
+10. Utilize o access_token nas requisições da API de recursos, escolhendo o Bearer Token como forma de autenticação.
