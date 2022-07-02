@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notesystem
+    username: postgres
+    password: admin
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgres
+server:
+  port: 8082
+aw:
+  auth:
+    provider-uri: "http://localhost:8082"
+    jks:
+      keypass: 123456
+      storepass: 123456
+      alias: notesystem
+      path: keystore/notesystem.jks
