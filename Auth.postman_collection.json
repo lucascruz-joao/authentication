@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "3f691d2c-969d-485f-9cb2-cd0c882df421",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth with auth code - resourceserver",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "resourceserver",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "default"
+						},
+						{
+							"key": "code",
+							"value": "amkh4rkwYLBPX8kic1S5NrJNiIOlTotjBtoS5rTyFZnz4bzhev9mXtuemHOtx8Iw3Z73XPab9KYxn0sT5j9ZszSSjs72PYWRTZq26_4R1eElDOD3Khd-oF-BWUSN95fY",
+							"type": "default"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oidcdebugger.com/debug",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Auth Code (Navegador)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/oauth2/authorize?response_type=code&client_id=resourceserver&state=abc&redirect_uri=https://oidcdebugger.com/debug",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"oauth2",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "resourceserver"
+						},
+						{
+							"key": "state",
+							"value": "abc"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oidcdebugger.com/debug"
+						},
+						{
+							"key": "scope",
+							"value": "user",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
